@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 双向绑定 表单变Vue实例里的data对应值也会变，改变Vue实例里的值表单值也会变 -->
+        <input type="text" v-model="inputValue">
+        <!-- v-on绑定事件 -->
+        <button v-on:click="handleBtnClick">提交</button>
+        <ul>
+            <!-- 遍历list数据，每一项是item -->
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+
+    </div>
+    <script>
+        var app = new Vue({
+            //Vue实例接管了id为app的dom元素
+            el:"#app",
+            data:{
+                list:[],
+                inputValue:''
+            },
+            methods:{
+                //button上绑定的事件
+                handleBtnClick:function(){
+                    // 向列表中Push输入值
+                    this.list.push(this.inputValue);
+                    this.inputValue=" ";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
