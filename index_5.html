@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        s = ")()(())())";
+        function Res( str ) {
+            r=false;
+            while(true){
+                postion=str.indexOf("()");
+                console.log(postion);
+                str = str.substring(0,postion)+str.substring(postion+2,str.length+1);
+                console.log(str);
+                if(postion==-1){
+                    break;
+                }
+                if(str==""){
+                    r=true;
+                    break;    
+                }
+            
+            }
+            return r;   
+        } 
+        Res(s);
+    </script>
+</body>
+</html>

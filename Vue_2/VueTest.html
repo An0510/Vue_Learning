@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <div v-text="text"></div>
+        <div>{{text}}</div>
+        <div v-text="html"></div>
+        <div>{{html}}</div>
+        <div v-html="html"></div>
+    </div>
+    
+
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script>
+        window.onload = function (){
+            new Vue({
+                el:"#app",
+                data:{
+                    text:"大家好，我是安南",
+                    html:"<p>html被解析了吗-=-</p>"
+                },
+            })
+        }
+    </script>
+</body>
+</html>

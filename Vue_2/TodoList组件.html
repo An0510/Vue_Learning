@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="../vue.js"></script>
+    <div id="app">
+        <div>
+        <input type="text" v-model="todoValue">
+        <button @click="handleBtnClick">提交</button>
+        </div>
+        <ul>
+            <!-- 被组件替换掉了 -->
+            <!-- <li v-for="item in list"></li> -->
+
+            <!-- 这里命名是把下面注册的组件驼峰的地方变成- -->
+            <!-- v-bind在这里是要往子组件传入值 list的每一项值赋给了item,再把item通过v-bind传递给todo-item-->
+            <todo-item v-bind:content="item"  
+                       v-for="item in list">
+                       <!-- list变页面也就新增了 -->
+            </todo-item>
+        </ul>
+    </div>
+    <script>
+        //创建全局组件的方法 组件名叫TodoItem
+        Vue.component("TodoItem",{
+            //props代表从父组件接受内容(list) 接受一个content的数据
+            props:['content'],
+            //组件里的模板 接受到的内容 用插值表达式
+            template:"<li>{{content}}</li>"
+        })
+
+        var TodoItem = {
+            props:['content'],
+            template:"<li>{{content}}</li>"
+        }
+
+        var app = new Vue({
+            // 局部组件使用时需要注册
+            components:{
+                TodoItem:TodoItem
+            },
+            el:"#app",
+            data:{
+                todoValue:'',
+                list:[]
+                
+            },
+            methods:{
+                handleBtnClick:function(){
+                    this.list.push(this.todoValue);
+                    this.todoValue=""
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
