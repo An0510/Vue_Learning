@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Demo</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <div v-for="(val, key, index) in listObj">{{ index }}{{ val.name }}</div>
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script>
+  window.onload = function () {
+    new Vue({
+      el: '#app',
+      data:{
+        listObj: {
+        	hong: {
+          	name: '小红'
+          },
+          ming: {
+          	name: '小明'
+          },
+          zhi: {
+          	name: '小智'
+          },
+          gang: {
+          	name: '小刚'
+          }
+        }
+      }
+    })
+  }
+</script>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Demo</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <div v-for="(val, key, index) in listObj">{{ index }}{{ val.name }}</div>
+  </div>
+</body>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script>
+  Vue.config.devtools = true
+  window.onload = function () {
+    new Vue({
+      el: '#app',
+      data:{
+        listObj: {
+        	hong: {
+          	name: '小红'
+          },
+          ming: {
+          	name: '小明'
+          },
+          zhi: {
+          	name: '小智'
+          },
+          gang: {
+          	name: '小刚'
+          }
+        }
+      }
+    })
+  }
+</script>
+</html>
