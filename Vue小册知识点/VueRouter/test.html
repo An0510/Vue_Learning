@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="route-view"></div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function(){ 
+            window.addEventListener("DOMContentLoaded",Load)
+            var routeView = null;
+            function Load(){
+                routeView = 1
+                console.log('routeView_1',routeView)
+                routeView = document.getElementById("route-view")
+                
+                console.log('routeView_2',routeView)
+                HashChange();
+                
+            }
+            function HashChange(){
+                routeView.innerHTML = 2
+                
+            }
+        }
+    </script>
+</body>
+</html>
